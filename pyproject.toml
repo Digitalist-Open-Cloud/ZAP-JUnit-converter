@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "zap-junit"
+version = "0.1.0"
+description = "Convert OWASP ZAP JSON output to JUnit XML format"
+authors = ["Mikke Schirén <mikke.schiren@digitalist.com>"]
+readme = "README.md"
+license = "MIT"
+keywords = ["zap", "owasp", "junit", "security", "testing", "ci-cd"]
+packages = [{include = "zap_junit", from = "src"}]
+package-mode = true
+
+[tool.poetry.scripts]
+zap-junit = "zap_junit:main"
+
+[tool.poetry.urls]
+Repository = "https://github.com/Digitalist-Open-Cloud/ZAP-JUnit-converter"
+Issues = "https://github.com/Digitalist-Open-Cloud/ZAP-JUnit-converter/issues"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+click = "^8.3.2"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^9.0.3"
+pytest-cov = "^7.1.0"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["src"]
+
+[tool.coverage.report]
+show_missing = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
