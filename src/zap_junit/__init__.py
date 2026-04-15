@@ -7,6 +7,9 @@ from xml.etree.ElementTree import Element, SubElement, ElementTree, indent
 import click
 
 
+__version__ = "0.1.1"
+
+
 RISK_LEVELS = {
     "0": "informational",
     "1": "low",
@@ -118,6 +121,7 @@ def convert(input_path: str, output_path: str | None = None) -> None:
 @click.command()
 @click.argument("input_file", type=click.Path(exists=True))
 @click.option("-o", "--output", "output_file", type=click.Path(), help="Output file path")
+@click.version_option(version=__version__)
 def main(input_file: str, output_file: str | None) -> None:
     """Convert ZAP JSON report to JUnit XML format."""
     convert(input_file, output_file)
