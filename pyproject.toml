@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "zap-junit"
-version = "0.1.2"
+version = "0.1.3"
 description = "Convert OWASP ZAP JSON output to JUnit XML format"
 authors = ["Mikke Schirén <mikke.schiren@digitalist.com>"]
 readme = "README.md"
