@@ -2,7 +2,15 @@ import json
 import sys
 from datetime import datetime
 from typing import Any
-from xml.etree.ElementTree import Element, SubElement, ElementTree, indent
+
+import warnings
+import defusedxml
+
+warnings.filterwarnings("ignore", message="defusedxml.cElementTree is deprecated")
+
+defusedxml.defuse_stdlib()
+
+from xml.etree.ElementTree import Element, SubElement, ElementTree, indent  # nosec: B405
 
 import click
 

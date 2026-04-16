@@ -19,6 +19,7 @@ Issues = "https://github.com/Digitalist-Open-Cloud/ZAP-JUnit-converter/issues"
 [tool.poetry.dependencies]
 python = "^3.12"
 click = "^8.3.2"
+defusedxml = "^0.7.1"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^9.0.3"
