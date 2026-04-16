@@ -25,6 +25,9 @@ jobs:
 
     steps:
       - name: Semgrep scan
+        run: semgrep scan --config auto
+
+      - name: Semgrep scan sarif
         run: semgrep scan --config auto --sarif --output semgrep.sarif
 
       - name: Upload SARIF file
