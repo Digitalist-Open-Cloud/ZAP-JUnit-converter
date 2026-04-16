@@ -2,8 +2,6 @@ import json
 import os
 import tempfile
 
-import pytest
-
 from zap_junit import convert, create_junit_xml, _strip_html
 
 
