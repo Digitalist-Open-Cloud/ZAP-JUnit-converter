@@ -23,5 +23,10 @@ jobs:
     if: (github.actor != 'dependabot[bot]')
 
     steps:
-      - uses: actions/checkout@v6
-      - run: semgrep scan --config auto
+      - name: Semgrep scan
+        run: semgrep scan --config auto --sarif --output semgrep.sarif
+
+      - name: Upload SARIF file
+        uses: github/codeql-action/upload-sarif@v4
+        with:
+          sarif_file: semgrep.sarif
