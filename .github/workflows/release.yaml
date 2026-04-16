@@ -17,3 +17,7 @@ jobs:
         with:
           format: cyclonedx-json
           artifact-name: sbom.cyclonedx.json
+      - uses: actions/attest@v4
+        with:
+          subject-path: '${{ github.workspace }}'
+          sbom-path: '${{ github.workspace }}/sbom.cyclonedx.json'
