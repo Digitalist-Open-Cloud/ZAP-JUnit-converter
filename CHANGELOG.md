@@ -2,6 +2,12 @@
 
 ## [0.1.4] - 2026-04-17
 
+### Fixed
+
+- Attestation write.
+
+## [0.1.4] - 2026-04-17
+
 ### Added
 
 - SBOM attestation added.
