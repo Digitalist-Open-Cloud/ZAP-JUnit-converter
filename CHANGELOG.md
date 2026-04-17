@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.1.6] - 2026-04-18
+
+### Added
+
+- Documentation about usage in GitLab.
+
+## [0.1.5] - 2026-04-17
+
+### ~~Fixed~~
+
+- Attestation.
+
 ## [0.1.4] - 2026-04-17
 
 ### Fixed
