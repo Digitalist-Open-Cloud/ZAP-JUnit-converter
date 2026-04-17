@@ -4,7 +4,9 @@
 [![CodeQL](https://github.com/Digitalist-Open-Cloud/ZAP-JUnit-converter/actions/workflows/github-code-scanning/codeql/badge.svg?branch=main)](https://github.com/Digitalist-Open-Cloud/ZAP-JUnit-converter/actions/workflows/github-code-scanning/codeql)
 [![Bandit](https://github.com/Digitalist-Open-Cloud/ZAP-JUnit-converter/actions/workflows/bandit.yaml/badge.svg)](https://github.com/Digitalist-Open-Cloud/ZAP-JUnit-converter/actions/workflows/bandit.yaml)
 
-Convert OWASP ZAP JSON output to JUnit XML format.
+Convert OWASP Zed Attack Proxy (ZAP) JSON output to JUnit XML format.
+
+Could be used for converting output from ZAP to be displayed as tests results in GitLab.
 
 ## Installation
 
@@ -29,3 +31,33 @@ poetry run pytest -v
 ```bash
 poetry run pytest --cov
 ```
+
+## Example usage
+
+### GitLab runner
+
+This needs a run of ZAP in the earlier, saving the results as  `zap-baseline-report.json `.
+
+```yaml
+zap-baseline-results:
+  stage: convert
+  image:
+    name: digitalist/zap-junit-converter:0.2
+    entrypoint: [""]
+  script:
+    - |
+      zap-junit zap-baseline-report.json  -o results.xml
+  rules:
+    - if: $CI_COMMIT_TAG
+  artifacts:
+    untracked: false
+    expire_in: 2 days
+    paths:
+      - results.xml
+    reports:
+      junit: results.xml
+```
+
+![Jobs](assets/jobs.png)
+![Tests](assets/tests.png)
+![Result](assets/result.png)
